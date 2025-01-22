@@ -1,60 +1,77 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tabs - PL4Y-ONLINE</title>
-  <link rel="stylesheet" href="../style.css">
-
-  <!-- Google Fonts link -->
-  <link href="https://fonts.googleapis.com/css2?family=Rowdies&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tab Tools</title>
+    <link rel="stylesheet" href="../style.css"> <!-- Ensure this links to your existing style.css -->
+    <link href="https://fonts.googleapis.com/css2?family=Rowdies&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap" rel="stylesheet">
 </head>
 <body>
-  <div class="hero">
-    <h1>Tabs</h1>
-  </div>
+    <!-- Hero Section with Background Image -->
+    <div class="hero">
+        <h1>Open Multiple Websites</h1>
+    </div>
 
-  <!-- Tool below the image -->
-  <div class="tool-container">
-    <h2>Tab Opening Tool</h2>
-    <form id="tab-form">
-      <label for="url">Website URL:</label>
-      <input type="url" id="url" name="url" required placeholder="Enter website URL">
+    <!-- Tool Section Below the Image -->
+    <div class="tool-container">
+        <h2>Tab Opening Tool</h2>
+        <form id="websiteForm">
+            <label for="url">Website URL:</label>
+            <input type="url" id="url" placeholder="https://example.com" required><br>
 
-      <label for="tab-count">Number of Tabs:</label>
-      <input type="number" id="tab-count" name="tab-count" min="1" max="10" required placeholder="Enter number of tabs">
+            <label for="count">Number of Tabs (max 500):</label>
+            <input type="number" id="count" min="1" max="500" required><br>
 
-      <label for="speed">Speed (seconds):</label>
-      <input type="range" id="speed" name="speed" min="1" max="10" value="5">
-      <span id="speed-value">5</span> seconds
+            <div class="slider-container">
+                <label for="speed">Opening Speed (ms):</label><br>
+                <input type="range" id="speed" min="50" max="1000" value="100" step="50">
+                <div class="speed-display">Current Speed: <span id="speedValue">100</span> ms</div>
+            </div>
 
-      <button type="submit">Open Tabs</button>
-    </form>
-  </div>
+            <button type="submit">Open Websites</button>
+        </form>
+    </div>
 
-  <script>
-    // Show the selected speed value
-    const speedInput = document.getElementById('speed');
-    const speedValue = document.getElementById('speed-value');
-    speedInput.addEventListener('input', function() {
-      speedValue.textContent = speedInput.value;
-    });
+    <script>
+        const speedInput = document.getElementById('speed');
+        const speedValueDisplay = document.getElementById('speedValue');
 
-    // Handle form submission
-    document.getElementById('tab-form').addEventListener('submit', function(event) {
-      event.preventDefault();
+        // Update speed display when the slider is moved
+        speedInput.addEventListener('input', function () {
+            speedValueDisplay.textContent = speedInput.value;
+        });
 
-      const url = document.getElementById('url').value;
-      const tabCount = document.getElementById('tab-count').value;
-      const speed = document.getElementById('speed').value;
+        document.getElementById('websiteForm').addEventListener('submit', function(event) {
+            event.preventDefault();
 
-      for (let i = 0; i < tabCount; i++) {
-        setTimeout(() => {
-          window.open(url, `_blank`);
-        }, i * speed * 1000); // Open tabs at the specified speed
-      }
-    });
-  </script>
+            const url = document.getElementById('url').value;
+            const count = parseInt(document.getElementById('count').value, 10);
+            const speed = parseInt(speedInput.value, 10);
+
+            if (!url.startsWith('http://') && !url.startsWith('https://')) {
+                alert('Please enter a valid URL starting with http:// or https://');
+                return;
+            }
+
+            if (count > 500) {
+                alert('The maximum number of tabs allowed is 500.');
+                return;
+            }
+
+            let openedTabs = 0;
+
+            const openTab = () => {
+                if (openedTabs < count) {
+                    window.open(url, '_blank');
+                    openedTabs++;
+                    setTimeout(openTab, speed); // Open tabs with the selected delay
+                }
+            };
+
+            openTab();
+        });
+    </script>
 </body>
 </html>
