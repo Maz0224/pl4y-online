@@ -1,0 +1,12 @@
+/* Header styles */
+header {
+  background-color: #4CAF50; /* Green background */
+  color: white; /* White text */
+  text-align: center; /* Center the text */
+  padding: 20px;
+}
+
+header h1 {
+  margin: 0; /* Remove default margin */
+  font-size: 36px; /* You can change the size of the font */
+}
