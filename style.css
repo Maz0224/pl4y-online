@@ -30,11 +30,11 @@ body, html {
 }
 
 .blue-btn {
-  background-color: #007bff; /* Blue color */
+  background-color: #1b193d; /* Blue color */
   color: white;
   border: none;
   padding: 15px 25px;
-  margin: 10px; /* Spacing between buttons */
+  margin: 20px; /* Spacing between buttons */
   font-size: 16px;
   cursor: pointer;
   border-radius: 5px; /* Rounded corners */
