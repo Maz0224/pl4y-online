@@ -1,12 +1,41 @@
-/* Header styles */
+/* General body styling */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f0f0f0; /* Light gray background */
+  margin: 0;
+  padding: 0;
+}
+
+/* Header styling */
 header {
   background-color: #4CAF50; /* Green background */
   color: white; /* White text */
-  text-align: center; /* Center the text */
-  padding: 20px;
+  text-align: center; /* Center text */
+  padding: 50px 0; /* Top and bottom padding */
 }
 
 header h1 {
-  margin: 0; /* Remove default margin */
-  font-size: 36px; /* You can change the size of the font */
+  margin: 0;
+  font-size: 60px; /* Larger font size for the title */
+}
+
+/* Main content section */
+section {
+  text-align: center; /* Center text and image */
+  padding: 50px 20px;
+}
+
+/* Styling for the image */
+.image-container img {
+  max-width: 80%; /* Set a max width for the image */
+  height: auto;
+  border-radius: 10px; /* Optional: rounded corners */
+}
+
+/* Footer styling */
+footer {
+  background-color: #333;
+  color: white;
+  text-align: center;
+  padding: 10px 0;
 }
