@@ -25,6 +25,30 @@ body, html {
   text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); /* Added shadow for readability */
 }
 
+/* Back Button Styling */
+.back-button-container {
+  text-align: center; /* Center the button */
+  margin-top: 20px;
+}
+
+.blue-btn {
+  background-color: #1b193d; /* Button color */
+  color: white; /* Text color */
+  border: none;
+  padding: 15px 25px;
+  margin: 20px; /* Space between buttons */
+  font-size: 16px; /* Font size */
+  cursor: pointer;
+  border-radius: 5px; /* Rounded corners */
+  font-family: 'Josefin Sans', sans-serif; /* Apply the Roboto font */
+  transition: background-color 0.3s;
+  display: inline-block;
+}
+
+.blue-btn:hover {
+  background-color: #0056b3; /* Darker blue on hover */
+}
+
 /* Tool Container Styling */
 .tool-container {
   background-image: url('images/IMG_1936.png'); /* Same background image as the hero */
@@ -82,29 +106,4 @@ button:hover {
 .speed-display {
   font-size: 14px;
   margin-top: 5px;
-}
-
-/* Back Button Styling */
-a {
-  text-decoration: none; /* Remove underline */
-}
-
-.blue-btn {
-  background-color: #1b193d; /* Button color */
-  color: white; /* Text color */
-  border: none;
-  padding: 15px 25px;
-  margin: 20px; /* Space between buttons */
-  font-size: 16px; /* Font size */
-  cursor: pointer;
-  border-radius: 5px; /* Rounded corners */
-  font-family: 'Josefin Sans', sans-serif; /* Apply the Roboto font */
-  transition: background-color 0.3s;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.blue-btn:hover {
-  background-color: #0056b3; /* Darker blue on hover */
 }
