@@ -14,5 +14,47 @@
   <div class="hero">
     <h1>Tabs</h1>
   </div>
+
+  <!-- Tool below the image -->
+  <div class="tool-container">
+    <h2>Tab Opening Tool</h2>
+    <form id="tab-form">
+      <label for="url">Website URL:</label>
+      <input type="url" id="url" name="url" required placeholder="Enter website URL">
+
+      <label for="tab-count">Number of Tabs:</label>
+      <input type="number" id="tab-count" name="tab-count" min="1" max="10" required placeholder="Enter number of tabs">
+
+      <label for="speed">Speed (seconds):</label>
+      <input type="range" id="speed" name="speed" min="1" max="10" value="5">
+      <span id="speed-value">5</span> seconds
+
+      <button type="submit">Open Tabs</button>
+    </form>
+  </div>
+
+  <script>
+    // Show the selected speed value
+    const speedInput = document.getElementById('speed');
+    const speedValue = document.getElementById('speed-value');
+    speedInput.addEventListener('input', function() {
+      speedValue.textContent = speedInput.value;
+    });
+
+    // Handle form submission
+    document.getElementById('tab-form').addEventListener('submit', function(event) {
+      event.preventDefault();
+
+      const url = document.getElementById('url').value;
+      const tabCount = document.getElementById('tab-count').value;
+      const speed = document.getElementById('speed').value;
+
+      for (let i = 0; i < tabCount; i++) {
+        setTimeout(() => {
+          window.open(url, `_blank`);
+        }, i * speed * 1000); // Open tabs at the specified speed
+      }
+    });
+  </script>
 </body>
 </html>
