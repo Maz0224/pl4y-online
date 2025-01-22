@@ -21,7 +21,7 @@ body, html {
   font-family: 'Rowdies', cursive; /* Apply Rowdies font */
   color: white; /* Text color */
   font-size: 60px; /* Adjust font size */
-  margin: 0 0 20px 0; /* Space below the title */
+  margin: 0 0 10px 0; /* Space below the title */
   text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); /* Added shadow for readability */
 }
 
@@ -35,15 +35,13 @@ a {
   color: white; /* Text color */
   border: none;
   padding: 15px 25px;
-  margin: 20px; /* Space between buttons */
   font-size: 16px; /* Font size */
   cursor: pointer;
   border-radius: 5px; /* Rounded corners */
   font-family: 'Josefin Sans', sans-serif; /* Apply the Roboto font */
   transition: background-color 0.3s;
   display: inline-block;
-  margin-left: auto;
-  margin-right: auto;
+  margin-top: 10px; /* Added space above the button */
 }
 
 .blue-btn:hover {
