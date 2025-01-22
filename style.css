@@ -18,9 +18,11 @@ body, html {
 }
 
 .hero h1 {
+  font-family: 'Rowdies', cursive; /* Apply Lobster font */
   color: white; /* Text color */
   font-size: 60px; /* Adjust font size */
   margin: 0 0 20px 0; /* Space below the title */
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); /* Added shadow for readability */
 }
 
 /* Button styling */
