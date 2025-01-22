@@ -27,7 +27,9 @@ body, html {
 
 /* Tool Container Styling */
 .tool-container {
-  background-color: rgba(0, 0, 0, 0.6); /* Slight transparent black background for contrast */
+  background-image: url('images/IMG_1936.png'); /* Same background image as the hero */
+  background-size: cover; /* Cover the entire section */
+  background-position: center; /* Center the image */
   padding: 40px;
   color: white;
   text-align: center;
