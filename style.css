@@ -18,33 +18,66 @@ body, html {
 }
 
 .hero h1 {
-  font-family: 'Rowdies', cursive; /* Apply Lobster font */
+  font-family: 'Rowdies', cursive; /* Apply Rowdies font */
   color: white; /* Text color */
   font-size: 60px; /* Adjust font size */
   margin: 0 0 20px 0; /* Space below the title */
   text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); /* Added shadow for readability */
 }
 
-/* Button styling */
-.buttons {
-  display: flex; /* Use flexbox for horizontal layout */
-  justify-content: center; /* Center the buttons */
+/* Tool Container Styling */
+.tool-container {
+  background-color: rgba(0, 0, 0, 0.6); /* Slight transparent black background for contrast */
+  padding: 40px;
+  color: white;
+  text-align: center;
+  margin-top: -20px; /* Pull it up to align with the bottom of the hero section */
+  border-top: 2px solid #fff; /* Add a border to separate the sections */
 }
 
-/* Button styling */
-.blue-btn {
-  background-color: #1b193d; /* Button color */
-  color: white; /* Text color */
+/* Form Styling */
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+input[type="url"],
+input[type="number"],
+input[type="range"] {
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 5px;
   border: none;
-  padding: 15px 25px;
-  margin: 20px; /* Space between buttons */
-  font-size: 16px; /* Font size */
+  margin-top: 5px;
+  width: 300px;
+}
+
+button {
+  padding: 12px 20px;
+  font-size: 18px;
+  background-color: #1b193d;
+  color: white;
+  border: none;
+  border-radius: 5px;
   cursor: pointer;
-  border-radius: 5px; /* Rounded corners */
-  font-family: 'Josefin Sans', sans-serif; /* Apply the Roboto font */
   transition: background-color 0.3s;
 }
 
-.blue-btn:hover {
-  background-color: #0056b3; /* Darker blue on hover */
+button:hover {
+  background-color: #0056b3;
+}
+
+.slider-container {
+  margin: 20px 0;
+}
+
+.slider-container input[type="range"] {
+  width: 300px;
+}
+
+.speed-display {
+  font-size: 14px;
+  margin-top: 5px;
 }
