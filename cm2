@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>127x127 Pixel Grid</title>
+    <style>
+        #grid {
+            display: grid;
+            grid-template-columns: repeat(127, 8px);
+            gap: 1px;
+        }
+        .cell {
+            width: 8px;
+            height: 8px;
+            background-color: white;
+            border: 1px solid lightgray;
+            cursor: pointer;
+        }
+        .selected {
+            background-color: black; /* Default selected color */
+        }
+        #output {
+            white-space: pre-wrap;
+            font-family: monospace;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <label for="colorInput">Enter Color: </label>
+    <input type="text" id="colorInput" placeholder="e.g., blue">
+    <button onclick="generateOutput()">Generate</button>
+
+    <div id="grid"></div>
+    <pre id="output"></pre>
+
+    <script>
+        const gridSize = 127;
+        const grid = document.getElementById("grid");
+
+        // Create grid
+        for (let y = 0; y < gridSize; y++) {
+            for (let x = 0; x < gridSize; x++) {
+                let cell = document.createElement("div");
+                cell.classList.add("cell");
+                cell.dataset.x = x;
+                cell.dataset.y = y;
+                cell.addEventListener("click", () => {
+                    cell.classList.toggle("selected");
+                });
+                grid.appendChild(cell);
+            }
+        }
+
+        function generateOutput() {
+            const color = document.getElementById("colorInput").value.trim();
+            if (!color) {
+                alert("Please enter a color.");
+                return;
+            }
+
+            let output = "";
+            document.querySelectorAll(".selected").forEach(cell => {
+                let x = cell.dataset.x;
+                let y = cell.dataset.y;
+                output += `${x} ${y} ${color} 1\n`;
+            });
+
+            document.getElementById("output").textContent = output;
+        }
+    </script>
+
+</body>
+</html>
